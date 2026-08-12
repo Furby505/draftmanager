@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-06-17T02:58:27.375756+00:00",
+  "objective": "DraftKings Best Ball tournament EV policy",
+  "training_command": "python training/fit_dk_ev_policy.py --input data/processed/dk_ev_rollouts_selfplay.csv --model-out server/models/model_dk_ev_policy.joblib --features-out server/models/dk_ev_policy_feature_cols.json",
+  "notes": "Current served model appears to match the 7,200-row selfplay/faller=0.2 lane. Generated before fixed-gap side model promotion.",
+  "artifacts": {
+    "model": {
+      "path": "server/models/model_dk_ev_policy.joblib",
+      "exists": true,
+      "bytes": 1655030,
+      "modified_utc": "2026-06-13T23:00:07.329609+00:00",
+      "sha256": "dff6b63a02196dc49f18308fecec1f35a9f0a5001206d3cad5341cdba4259ca6"
+    },
+    "features": {
+      "path": "server/models/dk_ev_policy_feature_cols.json",
+      "exists": true,
+      "bytes": 1725,
+      "modified_utc": "2026-06-13T23:00:07.355166+00:00",
+      "sha256": "9beb3171cf6d064074a892a418b35cc1ed42c3f3d3e852c6ad761796b92e34bb"
+    },
+    "meta": {
+      "path": "server/models/dk_ev_policy_meta.json",
+      "exists": true,
+      "bytes": 1074,
+      "modified_utc": "2026-06-15T21:20:51.893378+00:00",
+      "sha256": "f7dc152020e6db50ccbc0b337e1685402c66a3846db22d3d45cb06365616127a"
+    }
+  },
+  "data": {
+    "rollouts": {
+      "path": "data/processed/dk_ev_rollouts_selfplay.csv",
+      "exists": true,
+      "bytes": 2885406,
+      "modified_utc": "2026-06-13T23:00:00.891832+00:00",
+      "sha256": "9e89753a165544e081576b3b1a3fd452f08c976eb0c5a198c00c8bae6abd0692",
+      "rows": 7200
+    }
+  },
+  "reports": {
+    "fit_audit": {
+      "path": "data/processed/dk_ev_policy_selfplay_audit.md",
+      "exists": true,
+      "bytes": 2624,
+      "modified_utc": "2026-06-13T23:00:07.407631+00:00",
+      "sha256": "3de5fbfcf8ef5bb56d7151df6e211becfdf7410fe482310031f0993c8838a386"
+    },
+    "holdout_predictions": {
+      "path": "data/processed/dk_ev_policy_selfplay_holdout_predictions.csv",
+      "exists": true,
+      "bytes": 192739,
+      "modified_utc": "2026-06-13T23:00:07.380189+00:00",
+      "sha256": "7b60cbcac56c031aa6446ed9a601ee3128c8a0f447f80ba94ca58da7a30b04f0",
+      "rows": 1493
+    },
+    "validation": [
+      {
+        "path": "data/processed/paired_vs_adp_full_fixed.md",
+        "exists": true,
+        "bytes": 1283,
+        "modified_utc": "2026-06-16T03:59:00.151737+00:00",
+        "sha256": "37725fca0bfd3f11a578f4e12704f1db191cc3cdf927569a0e1387396072ea1d"
+      },
+      {
+        "path": "data/processed/paired_vs_adp_half.md",
+        "exists": true,
+        "bytes": 1281,
+        "modified_utc": "2026-06-16T02:00:04.362277+00:00",
+        "sha256": "615ce904ee50a802fef7bb7359af2d8971bc0b286219367447a4c3cbd03c9734"
+      },
+      {
+        "path": "data/processed/validate_vs_humans_full_audit.md",
+        "exists": true,
+        "bytes": 1524,
+        "modified_utc": "2026-06-14T07:13:32.956147+00:00",
+        "sha256": "56363a598be2f70b8e666f67fcbf6a08611668a7a01204fdece863490bd6d6d2"
+      },
+      {
+        "path": "data/processed/validate_vs_humans_half_audit.md",
+        "exists": true,
+        "bytes": 1529,
+        "modified_utc": "2026-06-14T06:14:22.989882+00:00",
+        "sha256": "baa745501affe1cfe59c266b1a307998ba41c7eca7f73582726db2622da0354c"
+      }
+    ]
+  },
+  "code": [
+    {
+      "path": "server/server.py",
+      "exists": true,
+      "bytes": 57599,
+      "modified_utc": "2026-06-17T01:04:29.587609+00:00",
+      "sha256": "07b281aef6d809030435c41fe4d4a100937a649e7d3a79423fd4b273b0c4a562"
+    },
+    {
+      "path": "training/train_policy.py",
+      "exists": true,
+      "bytes": 33218,
+      "modified_utc": "2026-06-17T01:01:38.668847+00:00",
+      "sha256": "6438f3fe0daf63c9826712212ce168d0820571fb97d9fd5fe60f4ec6ab78f3c2"
+    },
+    {
+      "path": "training/fit_dk_ev_policy.py",
+      "exists": true,
+      "bytes": 14823,
+      "modified_utc": "2026-06-15T21:20:44.596323+00:00",
+      "sha256": "7fdd8a528ca773e7b06296d3b8f978ddbbf26f61ecf3702e4a3fdddfc4f57442"
+    },
+    {
+      "path": "training/backtest_policy.py",
+      "exists": true,
+      "bytes": 15862,
+      "modified_utc": "2026-06-15T21:17:57.038154+00:00",
+      "sha256": "53202a5a3d9d69b0f0bb352045c90b7ac72408c5a88fa14dde514e14d52f0cd9"
+    },
+    {
+      "path": "training/paired_vs_adp.py",
+      "exists": true,
+      "bytes": 6254,
+      "modified_utc": "2026-06-16T01:05:00.435367+00:00",
+      "sha256": "41e2136912a90ffa773a9f9d952cb2e82377ef3ebf8bef2f2f202685cdf7a1a5"
+    },
+    {
+      "path": "training/validate_vs_humans.py",
+      "exists": true,
+      "bytes": 13816,
+      "modified_utc": "2026-06-16T03:09:18.508515+00:00",
+      "sha256": "718934260afbc737f74d1356369970e1fa61e7260fdd9db3f19f3f9a0060ef31"
+    }
+  ],
+  "meta": {
+    "model_kind": "HistGradientBoostingRegressor",
+    "target": "ev_edge",
+    "rows": 7200,
+    "train_rows": 5707,
+    "holdout_rows": 1493,
+    "states": 900,
+    "holdout_states": 770,
+    "holdout_seeds": [],
+    "features": 72,
+    "base_candidate_depth": 8,
+    "candidate_depth_schedule": [
+      {
+        "round": 1,
+        "depth": 8
+      }
+    ],
+    "max_candidate_rank": 8,
+    "model_out": "server/models/model_dk_ev_policy.joblib",
+    "features_out": "server/models/dk_ev_policy_feature_cols.json",
+    "audit_out": "data/processed/dk_ev_policy_audit.md",
+    "pred_out": "data/processed/dk_ev_policy_holdout_predictions.csv",
+    "metrics": {
+      "edge_mae": 8.941506324902048e-05,
+      "edge_rmse": 0.00013107289724282524,
+      "edge_corr": 0.508850192845886,
+      "states": 483,
+      "model_top1_accuracy": 0.5755693581780539,
+      "adp_top1_accuracy": 0.4989648033126294,
+      "model_avg_regret": 4.4961871198889334e-05,
+      "adp_avg_regret": 6.670710622016383e-05,
+      "model_avg_chosen_edge": 5.9057654229352984e-05,
+      "adp_avg_chosen_edge": 3.7312419208078486e-05
+    }
+  },
+  "metrics": {
+    "edge_mae": 8.941506324902048e-05,
+    "edge_rmse": 0.00013107289724282524,
+    "edge_corr": 0.508850192845886,
+    "states": 483,
+    "model_top1_accuracy": 0.5755693581780539,
+    "adp_top1_accuracy": 0.4989648033126294,
+    "model_avg_regret": 4.4961871198889334e-05,
+    "adp_avg_regret": 6.670710622016383e-05,
+    "model_avg_chosen_edge": 5.9057654229352984e-05,
+    "adp_avg_chosen_edge": 3.7312419208078486e-05
+  }
+}

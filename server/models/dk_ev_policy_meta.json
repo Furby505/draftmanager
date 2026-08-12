@@ -1,0 +1,35 @@
+{
+  "model_kind": "HistGradientBoostingRegressor",
+  "target": "ev_edge",
+  "rows": 7200,
+  "train_rows": 5707,
+  "holdout_rows": 1493,
+  "states": 900,
+  "holdout_states": 770,
+  "holdout_seeds": [],
+  "features": 72,
+  "base_candidate_depth": 8,
+  "candidate_depth_schedule": [
+    {
+      "round": 1,
+      "depth": 8
+    }
+  ],
+  "max_candidate_rank": 8,
+  "model_out": "server/models/model_dk_ev_policy.joblib",
+  "features_out": "server/models/dk_ev_policy_feature_cols.json",
+  "audit_out": "data/processed/dk_ev_policy_audit.md",
+  "pred_out": "data/processed/dk_ev_policy_holdout_predictions.csv",
+  "metrics": {
+    "edge_mae": 8.941506324902048e-05,
+    "edge_rmse": 0.00013107289724282524,
+    "edge_corr": 0.508850192845886,
+    "states": 483,
+    "model_top1_accuracy": 0.5755693581780539,
+    "adp_top1_accuracy": 0.4989648033126294,
+    "model_avg_regret": 4.4961871198889334e-05,
+    "adp_avg_regret": 6.670710622016383e-05,
+    "model_avg_chosen_edge": 5.9057654229352984e-05,
+    "adp_avg_chosen_edge": 3.7312419208078486e-05
+  }
+}

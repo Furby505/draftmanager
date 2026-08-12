@@ -1,0 +1,87 @@
+# Secrets and local machine configuration. These files must never be published.
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.cer
+*.der
+*.jks
+*.keystore
+*.kdbx
+id_rsa*
+id_ed25519*
+.env
+.env.*
+!.env.example
+.netrc
+.npmrc
+.pypirc
+credentials*.json
+service-account*.json
+*oauth-client*.json
+.claude/
+.codex/
+.cursor/
+.windsurf/
+.venv/
+venv/
+env/
+chrome-profile/
+browser-profile/
+
+# Generated data and training outputs
+data/
+draftkings_best_ball_adp_*.csv
+draftkings_best_ball_adp_*.json
+underdog_best_ball_adp_*.csv
+underdog_best_ball_adp_*.json
+
+# Model binaries are ignored by default; keep only the deployed DK EV policy tracked.
+server/models/*.joblib
+!server/models/model_dk_ev_policy.joblib
+
+# Experiment model-metadata artifacts (the sibling .joblib are already ignored;
+# committing orphaned _cols/_meta json without their binaries is just clutter).
+server/models/_*.json
+server/models/dk_ev_counterfactual_reranker_*.json
+server/models/dk_ev_policy_calibrated_candidate_*.json
+
+# Logs, backups, and caches
+*.log
+*.out.log
+*.err.log
+*.bak_*
+*.sqlite
+*.sqlite3
+*.db
+server_out.txt
+server_err.txt
+server/server_out.txt
+server/server_err.txt
+server/server_log.txt
+**/__pycache__/
+*.pyc
+*.pyo
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+dist/
+
+# Keep these tracked deployable outputs.
+!server/models/projections.json
+!server/models/projections.csv
+!server/models/adp.json
+!server/models/dk_adp.json
+!server/models/dk_ev_policy_feature_cols.json
+!server/models/dk_ev_policy_meta.json
+!server/models/bye_weeks.json

@@ -1,0 +1,55 @@
+{
+    "model_kind":  "HistGradientBoostingRegressor",
+    "target":  "ev_edge",
+    "rows":  7680,
+    "train_rows":  5760,
+    "holdout_rows":  1920,
+    "states":  960,
+    "holdout_states":  240,
+    "holdout_seeds":  [
+                          20260743,
+                          20260746
+                      ],
+    "features":  74,
+    "label":  "Underdog Half-PPR Served Recipe 960s",
+    "base_candidate_depth":  8,
+    "candidate_depth_schedule":  [
+                                     {
+                                         "round":  1,
+                                         "depth":  12
+                                     },
+                                     {
+                                         "round":  3,
+                                         "depth":  14
+                                     },
+                                     {
+                                         "round":  7,
+                                         "depth":  18
+                                     },
+                                     {
+                                         "round":  11,
+                                         "depth":  24
+                                     },
+                                     {
+                                         "round":  15,
+                                         "depth":  32
+                                     }
+                                 ],
+    "max_candidate_rank":  8,
+    "model_out":  "server/models/model_dk_ev_policy_halfppr.joblib",
+    "features_out":  "server/models/dk_ev_policy_halfppr_feature_cols.json",
+    "audit_out":  "data\\processed\\halfppr_served_recipe_960s_audit.md",
+    "pred_out":  "data\\processed\\halfppr_served_recipe_960s_holdout_predictions.csv",
+    "metrics":  {
+                    "edge_mae":  4.4392834916607677E-05,
+                    "edge_rmse":  6.46028802067856E-05,
+                    "edge_corr":  0.66394407562695,
+                    "states":  240,
+                    "model_top1_accuracy":  0.43333333333333335,
+                    "adp_top1_accuracy":  0.20416666666666666,
+                    "model_avg_regret":  4.8610621169542517E-05,
+                    "adp_avg_regret":  0.0001123893618140955,
+                    "model_avg_chosen_edge":  9.4639740317931442E-05,
+                    "adp_avg_chosen_edge":  3.0860999673378446E-05
+                }
+}

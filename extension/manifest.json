@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "DraftManager",
+  "version": "1.0",
+  "description": "AI best ball draft assistant for supported draft platforms",
+  "permissions": ["activeTab", "storage", "scripting"],
+  "host_permissions": [
+    "http://localhost:8765/*",
+    "*://draftkings.com/*",
+    "*://*.draftkings.com/*",
+    "*://underdogfantasy.com/*",
+    "*://*.underdogfantasy.com/*",
+    "*://playunderdog.com/*",
+    "*://*.playunderdog.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://draftkings.com/*",
+        "*://*.draftkings.com/*",
+        "*://underdogfantasy.com/*",
+        "*://*.underdogfantasy.com/*",
+        "*://playunderdog.com/*",
+        "*://*.playunderdog.com/*"
+      ],
+      "js": ["ws_interceptor.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "*://draftkings.com/*",
+        "*://*.draftkings.com/*",
+        "*://underdogfantasy.com/*",
+        "*://*.underdogfantasy.com/*",
+        "*://playunderdog.com/*",
+        "*://*.playunderdog.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["panel.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "DraftManager"
+  }
+}
